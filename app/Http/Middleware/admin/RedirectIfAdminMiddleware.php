@@ -16,8 +16,8 @@ class RedirectIfAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role_id == 1) {
-            return redirect("/admin");
+        if(Auth::user()->role_id == 0) {
+            return redirect("/login");
         }
         return $next($request);
     }

@@ -1,18 +1,16 @@
-<x-admin.admin-layout pageName="Update Post" brandName="Blog Website" icon="{{asset('admin/assets/img/favicon/favicon.ico')}}">
-    <x-slot:content>
-        <x-session-notifier />
+@props(['formTitle', 'formDesc', 'buttonTitle', 'action', 'method'])
 <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row">
         <div class="col-lg-12 mb-4 order-0">
             <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                      <h5 class="mb-0">Update Post</h5>
-                      <small class="text-muted float-end">Post Update Page</small>
+                      <h5 class="mb-0">{{ $formTitle }}</h5>
+                      <small class="text-muted float-end">{{ $formDesc }}</small>
                     </div>
                     <div class="card-body">
-                      <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+                      <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        @method($method)
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-fullname">Title</label>
                           <input type="text" name="title" class="form-control" id="basic-default-fullname" value="{{ $post->title }}" placeholder="Post Title">
@@ -23,8 +21,7 @@
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-email">Image</label>
-                          <img src="{{asset((string)'/storage/' . $post->image ) }}" height="300" width="300" />
-                          <br><br>
+                          <img src="/storage/{{ $post->image }}" height="300" width="300" />
                           <div class="input-group input-group-merge">
                             <input type="file" id="basic-default-email" type="image" class="form-control" name="image">
                           </div>
@@ -41,15 +38,10 @@
                             <br> No Categories Added
                           @endforelse
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Post</button>
+                        <button type="submit" class="btn btn-primary">{{ $buttonTitle }}</button>
                       </form>
                     </div>
                   </div>
         </div>
     </div>
 </div>
-    </x-slot:content>
-    <x-slot:footer>
-
-    </x-slot:footer>
-</x-admin.admin-layout>

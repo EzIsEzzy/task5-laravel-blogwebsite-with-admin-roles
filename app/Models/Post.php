@@ -10,7 +10,7 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
-    protected $fillable = [] ;
+    protected $fillable = ['title', 'content', 'image', 'user_id'] ;
     protected $casts = [] ;
 
     public function user()

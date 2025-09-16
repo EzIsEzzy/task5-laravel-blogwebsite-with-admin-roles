@@ -1,21 +1,19 @@
 <?php
 
-namespace App\View\Components\admin\cards;
+namespace App\View\Components\auth;
 
-use App\Models\Category;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class FormCard extends Component
+class RegisterBody extends Component
 {
     /**
      * Create a new component instance.
      */
-    public $categories;
     public function __construct()
     {
-        $this->categories = Category::all();
+        //
     }
 
     /**
@@ -23,6 +21,6 @@ class FormCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.cards.form-card', ['categories' => $this->categories]);
+        return view('components.auth.register-body');
     }
 }

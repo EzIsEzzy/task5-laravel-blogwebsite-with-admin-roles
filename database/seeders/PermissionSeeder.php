@@ -2,21 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use Database\Factories\CategoryFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
-class CategorySeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Category::factory()->create([
-            "name" => fake()->name,
-            "slug"=> fake()->slug
-        ]);
+        //
     }
 }
